@@ -12,22 +12,24 @@ edition = "2018"
 name = "secp256k1"
 
 [dependencies]
-rand = { version = "0.6", default-features = false }
-hmac-drbg = "0.2"
-sha2 = "0.8"
-digest = "0.8"
+rand = { git = "https://github.com/mesalock-linux/rand-sgx", tag = "v0.6.5_sgx1.0.9" }
+hmac-drbg = { git = "https://github.com/mesalock-linux/hmac-drbg-rs-sgx" }
+sha2 = { git = "https://github.com/mesalock-linux/rustcrypto-hashes-sgx" }
+digest = { git = "https://github.com/mesalock-linux/rustcrypto-traits-sgx" }
 typenum = "1.11"
 arrayref = "0.3"
-subtle = { version = "2.2", default-features = false }
+subtle = { git = "https://github.com/mesalock-linux/subtle-sgx" }
+sgx_tstd = { rev = "v1.0.9", git = "https://github.com/baidu/rust-sgx-sdk.git", optional = true }
 
 [dev-dependencies]
-secp256k1-test = "0.7"
-clear_on_drop = "0.2"
-rand-test = { package = "rand", version = "0.4" }
+#secp256k1-test = "0.7"
+#clear_on_drop = "0.2"
+#rand-test = { package = "rand", version = "0.4" }
 
 [features]
-default = ["std"]
-std = ["subtle/std", "rand/std"]
+default = ["std", "mesalock_sgx"]
+std = ["subtle/std", "rand/std", "mesalock_sgx"]
+mesalock_sgx = ["std", "sgx_tstd"]
 
 [workspace]
 members = [
