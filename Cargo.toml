@@ -21,6 +21,15 @@ arrayref = "0.3"
 subtle = { version = "2.2", default-features = false }
 crunchy = "0.2"
 
+[dependencies.sgx_tstd]
+git = "https://github.com/baidu/rust-sgx-sdk"
+rev="v1.0.9"
+
+[dependencies.sgx_rand]
+git = "https://github.com/baidu/rust-sgx-sdk"
+rev="v1.0.9"
+optional = true
+
 [dev-dependencies]
 secp256k1-test = "0.7"
 clear_on_drop = "0.2"
@@ -29,6 +38,7 @@ rand-test = { package = "rand", version = "0.4" }
 [features]
 default = ["std"]
 std = ["subtle/std", "rand/std", "sha2/std"]
+sgx = []
 
 [workspace]
 members = [
