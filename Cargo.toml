@@ -13,13 +13,13 @@ name = "secp256k1"
 
 [dependencies]
 rand = { git = "https://github.com/mesalock-linux/rand-sgx", tag = "v0.6.5_sgx1.0.9" }
-hmac-drbg = { git = "https://github.com/mesalock-linux/hmac-drbg-rs-sgx" }
-sha2 = { git = "https://github.com/mesalock-linux/rustcrypto-hashes-sgx" }
-digest = { git = "https://github.com/mesalock-linux/rustcrypto-traits-sgx" }
+hmac-drbg = { git = "https://github.com/mesalock-linux/hmac-drbg-rs-sgx", tag = "sgx_1.0.9" }
+sha2 = { git = "https://github.com/mesalock-linux/rustcrypto-hashes-sgx", tag = "sgx_1.0.9" }
+digest = { git = "https://github.com/mesalock-linux/rustcrypto-traits-sgx", tag = "sgx_1.0.9" }
 typenum = "1.11"
 arrayref = "0.3"
-subtle = { git = "https://github.com/mesalock-linux/subtle-sgx" }
-sgx_tstd = { rev = "v1.0.9", git = "https://github.com/baidu/rust-sgx-sdk.git", optional = true }
+subtle = { git = "https://github.com/mesalock-linux/subtle-sgx", tag = "sgx_1.0.9" }
+sgx_tstd = { git = "https://github.com/apache/incubator-teaclave-sgx-sdk", optional = true, tag = "v1.0.9" }
 
 [dev-dependencies]
 #secp256k1-test = "0.7"
